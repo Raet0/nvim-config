@@ -19,7 +19,8 @@ require("lazy").setup({
 		{ import = "plugins.nvim-tree" },
 		{ import = "plugins.colorscheme" },
 		{ import = "plugins.gitsigns" },
+		{ import = "plugins.barbar" },
+		{ import = "plugins.lualine" },
+       	        { import = "plugins.nvim-treesitter" },
 	},
-	-- automatically check for plugin updates
-	checker = { enabled = true },
 })
