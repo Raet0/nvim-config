@@ -47,5 +47,20 @@ require("lazy").setup({
         -- lsp
         { import = "plugins.lsp" },
 
+        -- autopais
+        { import = "plugins.autopairs" },
+
+        -- icons
+        { import = "plugins.icons" },
+
+        --snacks 
+        { import = "plugins.snacks" },
+
+        --tab-bar
+        { import = "plugins.tabs" },
+
+        -- new notifications
+        { import = "plugins.notifications" },
+
     },
 })
