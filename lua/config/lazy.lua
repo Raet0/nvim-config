@@ -16,23 +16,36 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
-        -- estetico
 
-        { import = "plugins.nvim-tree" },
-        { import = "plugins.colorscheme" },
-        { import = "plugins.barbar" },
-        { import = "plugins.lualine" },
+        -- file explorer
+        { import = "plugins.file_explorer" },
+
+        -- theme selector
+        { import = "plugins.themes" },
+
+        -- linea inferior (barra de estado)
+        { import = "plugins.statusbar" },
+
+        -- buscandor 
         { import = "plugins.telescope" },
-        { import = "plugins.toggleterm" },
-        -- funcionalidad
 
-        { import = "plugins.nvim-treesitter" },
+        -- terminal 
+        { import = "plugins.terminal" },
+
+        -- sintaxis lenguage
+        { import = "plugins.treesitter" },
+
+        -- git(signs)
         { import = "plugins.gitsigns" },
-        { import = "plugins.blink_cmp" },
---        { import = "plugins.nvim-cmp" },
 
-        -- lenguajes, LSP y autocompletado
-        -- {import = "plugins.lsp" },
+        -- autoComplete
+        { import = "plugins.autocomplete" },
+
+        -- mason(plugins)
         { import = "plugins.mason" },
+
+        -- lsp
+        { import = "plugins.lsp" },
+
     },
 })
