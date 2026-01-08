@@ -11,3 +11,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>ca", vim.lsp.buf.code_action, "Acciones de Código")
   end,
 })
+-- lua snipet
+local ls = require("luasnip")
+
+-- Saltar hacia adelante en el snippet (Ctrl + j)
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+-- Saltar hacia atrás en el snippet (Ctrl + k)
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
