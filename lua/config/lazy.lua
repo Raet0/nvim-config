@@ -60,5 +60,8 @@ require("lazy").setup({
 
         -- new notifications
         { import = "plugins.notifications" },
+        
+        -- luasnip
+        { import = "plugins.luasnip" },
     },
 })
