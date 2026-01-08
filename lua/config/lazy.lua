@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
-
         -- file explorer
         { import = "plugins.file_explorer" },
 
@@ -61,6 +60,5 @@ require("lazy").setup({
 
         -- new notifications
         { import = "plugins.notifications" },
-
     },
 })

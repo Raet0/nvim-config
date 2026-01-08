@@ -1,36 +1,31 @@
----@brief
----
---- https://github.com/hrsh7th/vscode-langservers-extracted
----
---- `vscode-html-language-server` can be installed via `npm`:
---- ```sh
---- npm i -g vscode-langservers-extracted
---- ```
----
---- Neovim does not currently include built-in snippets. `vscode-html-language-server` only provides completions when snippet support is enabled.
---- To enable completion, install a snippet plugin and add the following override to your language client capabilities during setup.
----
---- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
----
---- ```lua
---- --Enable (broadcasting) snippet capability for completion
---- local capabilities = vim.lsp.protocol.make_client_capabilities()
---- capabilities.textDocument.completion.completionItem.snippetSupport = true
----
---- vim.lsp.config('html', {
----   capabilities = capabilities,
---- })
---- ```
-
----@type vim.lsp.Config
 return {
-  cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { 'html', 'templ' },
-  root_markers = { 'package.json', '.git' },
-  settings = {},
+  -- No incluimos 'cmd' ni 'filetypes' porque Neovim 0.11 ya los conoce por defecto
+  
   init_options = {
+    -- Permite que el LSP formatee el código (puedes usar :vim.lsp.buf.format())
     provideFormatter = true,
-    embeddedLanguages = { css = true, javascript = true },
+    
+    -- VITAL: Esto permite que el autocompletado funcione dentro de etiquetas <style> y <script>
+    embeddedLanguages = { 
+      css = true, 
+      javascript = true 
+    },
+    
+    -- Configuración para que el servidor sepa qué secciones analizar
     configurationSection = { 'html', 'css', 'javascript' },
+  },
+
+  settings = {
+    html = {
+      format = {
+        templating = true,
+        wrapLineLength = 120,
+        wrapAttributes = 'auto',
+      },
+      hover = {
+        documentation = true,
+        references = true,
+      },
+    },
   },
 }
