@@ -1,28 +1,39 @@
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-        -- 1. Corregida la URL del autor
         "echasnovski/mini.icons",
     },
     keys = {
-        { "<C-e>", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Explorador" },
+        { "<C-e>", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Explorador" }, 
     },
     config = function()
-        -- 2. Inicializar mini.icons primero
         local icons = require("mini.icons")
         icons.setup()
-        
-        -- 3. Crear el "mock" para que nvim-tree lo reconozca
         icons.mock_nvim_web_devicons()
 
-        -- 4. Configurar nvim-tree
         require("nvim-tree").setup({
+            -- 1. ACTIVAR DIAGNÓSTICOS (Estilo VS Code)
+            diagnostics = {
+                enable = true,
+                show_on_dirs = true, -- Muestra el error también en la carpeta raíz
+                show_on_open_dirs = false,
+                debounce_delay = 50,
+                severity = {
+                    min = vim.diagnostic.severity.HINT, -- Muestra desde sugerencias hasta errores
+                    max = vim.diagnostic.severity.ERROR,
+                },
+                icons = {
+                    hint = "󰌵",
+                    info = "",
+                    warning = "",
+                    error = "",
+                },
+            },
             view = {
-                side = "right", -- Lo moviste a la derecha según tu código
+                side = "right",
                 width = 30,
             },
             renderer = {
-                -- Esto asegura que se intenten dibujar los iconos
                 icons = {
                     show = {
                         file = true,

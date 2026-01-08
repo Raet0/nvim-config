@@ -14,7 +14,7 @@ return {
     signcolumn = true,  -- Mostrar la columna de signos
     numhl      = false, -- Resaltar número de línea (opcional)
     linehl     = false, -- Resaltar la línea completa (opcional)
-    word_diff  = false, 
+    word_diff  = false,
     current_line_blame = true, -- Te muestra quién hizo el cambio en la línea actual
     current_line_blame_opts = {
       virt_text = true,
@@ -22,4 +22,4 @@ return {
       delay = 500,           -- Medio segundo para que aparezca el nombre
     },
   },
-} 
+}

@@ -1,8 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = { 
+    dependencies = {
         "williamboman/mason-lspconfig.nvim",
-        "saghen/blink.cmp" 
+        "saghen/blink.cmp"
     },
     config = function()
         local blink = require("blink.cmp")

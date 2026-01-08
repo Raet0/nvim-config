@@ -9,6 +9,6 @@ return {
   config = function(_, opts)
     require("mini.icons").setup(opts)
     -- LÍNEA VITAL: Activa el modo compatibilidad
-    require("mini.icons").mock_nvim_web_devicons() 
+    require("mini.icons").mock_nvim_web_devicons()
   end,
 }
